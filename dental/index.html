@@ -68,7 +68,7 @@
   .time:hover{border-color:var(--accent)}
   .time[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 6px 18px -8px rgba(14,124,107,.7)}
   .time:disabled{color:#B9C1BF;text-decoration:line-through;cursor:not-allowed;border-style:dashed}
-  .docpick{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:12px}
+  .docpick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-bottom:12px}
   .dp{border:1px solid var(--line);border-radius:12px;padding:8px 4px;text-align:center;font:500 12px/1.3 var(--sans);color:var(--muted);background:none;cursor:pointer;transition:all .3s var(--ease)}
   .dp b{display:block;font-size:14px;color:var(--ink);font-weight:600}
   .dp:hover{border-color:var(--accent)}
@@ -190,6 +190,9 @@
     .hero-cta .btn{flex:1 1 100%}
     .rows li{padding:18px 20px}
     .seg{grid-template-columns:1fr 1fr}
+    .slot-card{padding:20px}
+    .dp b{font-size:13px}
+    .dp{font-size:11px;padding:8px 2px}
     .price-foot{padding:18px 20px}
     .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:30;gap:8px}
     .mbar .btn{flex:1;box-shadow:0 10px 30px -10px rgba(15,42,42,.5)}
@@ -332,7 +335,7 @@
           <label class="field">Врач
             <select name="doctor" id="docField"><option value="0">Любой, подберите по задаче</option><option value="1">Анна Ковалёва, терапевт</option><option value="2">Дмитрий Савин, хирург</option><option value="3">Елена Морозова, гигиенист</option></select>
           </label>
-          <label class="field">Удобное время<input name="slot" id="slotField" placeholder="Выберите вверху или оставьте — подберём" readonly></label>
+          <label class="field">Удобное время<input name="slot" id="slotField" placeholder="Любое — подберём сами" readonly></label>
           <fieldset class="field">
             <legend>Как подтвердить запись</legend>
             <div class="seg">
