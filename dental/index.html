@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Бриз — стоматология в Анапе</title>
+<meta name="description" content="Стоматология «Бриз» в Анапе: лечение, чистка, имплантация. Запись онлайн за минуту.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F3EE; --paper:#FFFFFF; --ink:#0F2A2A; --ink-2:#3D5353; --muted:#6F7F7E;
+    --line:#E2DDD4; --accent:#0E7C6B; --accent-ink:#FFFFFF; --soft:#E6F1EE; --warn:#B4502F;
+    --r-card:16px; --r-btn:10px; --r-modal:20px;
+    --ease:cubic-bezier(.25,1,.5,1);
+    --serif:"Literata", Georgia, serif; --sans:"Onest", system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;text-wrap:balance}
+  p{text-wrap:pretty}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:var(--r-btn);
+       font:600 16px/1 var(--sans);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s var(--ease)}
+  .btn-primary{background:var(--accent);color:var(--accent-ink);box-shadow:0 0 0 0 rgba(14,124,107,0)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 24px -8px rgba(14,124,107,.55)}
+  .btn-ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink-2)}
+  .btn:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+  /* header */
+  header{position:sticky;top:0;z-index:20;background:rgba(246,243,238,.92);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid transparent;transition:border-color .3s var(--ease)}
+  header.scrolled{border-color:var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-family:var(--serif);font-size:24px;font-weight:600;text-decoration:none;display:flex;align-items:baseline;gap:8px}
+  .logo small{font-family:var(--sans);font-size:13px;color:var(--muted);font-weight:500}
+  .nav-links{display:flex;gap:28px;font-size:15px;color:var(--ink-2)}
+  .nav-links a{text-decoration:none;transition:color .3s var(--ease)}
+  .nav-links a:hover{color:var(--accent)}
+  .nav-right{display:flex;align-items:center;gap:18px}
+  .phone{font-weight:600;text-decoration:none;white-space:nowrap}
+
+  /* hero */
+  .hero{padding:72px 0 88px}
+  .hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:56px;align-items:center}
+  .eyebrow{font-size:14px;font-weight:600;color:var(--accent);letter-spacing:.04em;text-transform:uppercase;margin-bottom:18px}
+  .hero h1{font-size:clamp(40px,5.4vw,66px);line-height:1.04;margin-bottom:22px}
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero p.lead{font-size:19px;color:var(--ink-2);max-width:520px;margin-bottom:32px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px}
+  .facts{display:flex;flex-wrap:wrap;gap:28px;font-size:15px;color:var(--ink-2)}
+  .facts b{display:block;font-family:var(--serif);font-size:22px;color:var(--ink)}
+
+  .slot-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-modal);padding:28px;box-shadow:0 30px 60px -40px rgba(15,42,42,.35)}
+  .slot-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+  .slot-head h3{font-size:20px}
+  .live{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--accent);font-weight:600}
+  .live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--soft)}
+  .days{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+  .day{border:1px solid var(--line);border-radius:12px;padding:10px 6px;text-align:center;font-size:13px;color:var(--muted);background:none;cursor:pointer;font-family:var(--sans);transition:all .3s var(--ease)}
+  .day b{display:block;font-size:18px;color:var(--ink);font-weight:600}
+  .day[aria-pressed="true"]{border-color:var(--accent);background:var(--soft)}
+  .times{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+  .time{min-height:44px;border:1px solid var(--line);border-radius:10px;background:none;font:500 15px var(--sans);color:var(--ink);cursor:pointer;transition:all .3s var(--ease)}
+  .time:hover{border-color:var(--accent)}
+  .time[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 6px 18px -8px rgba(14,124,107,.7)}
+  .time:disabled{color:#B9C1BF;text-decoration:line-through;cursor:not-allowed;border-style:dashed}
+  .slot-card .btn{width:100%}
+  .slot-note{font-size:13px;color:var(--muted);text-align:center;margin-top:12px}
+
+  section{padding:88px 0}
+  .sec-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:44px}
+  .sec-head h2{font-size:clamp(32px,3.6vw,46px);line-height:1.1}
+  .sec-head p{color:var(--ink-2);max-width:460px}
+
+  /* prices */
+  .prices{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden}
+  .tabs{display:flex;gap:4px;padding:8px;border-bottom:1px solid var(--line);overflow-x:auto}
+  .tab{flex:0 0 auto;min-height:44px;padding:0 18px;border-radius:10px;border:0;background:none;font:500 15px var(--sans);color:var(--ink-2);cursor:pointer;transition:all .3s var(--ease)}
+  .tab[aria-selected="true"]{background:var(--soft);color:var(--accent)}
+  .rows{list-style:none}
+  .rows li{display:grid;grid-template-columns:1fr auto;gap:16px;padding:20px 28px;border-bottom:1px solid var(--line);align-items:baseline}
+  .rows li:last-child{border-bottom:0}
+  .rows .name{font-weight:500}
+  .rows .name span{display:block;font-size:14px;color:var(--muted);font-weight:400;margin-top:2px}
+  .rows .price{font-family:var(--serif);font-size:20px;white-space:nowrap}
+  .rows .price small{font-family:var(--sans);font-size:13px;color:var(--muted)}
+  .rows li.hit .name::after{content:"чаще всего берут";margin-left:10px;font-size:12px;font-weight:600;color:var(--accent);background:var(--soft);padding:3px 8px;border-radius:6px;vertical-align:2px}
+  .price-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 28px;background:var(--bg);font-size:15px;color:var(--ink-2);flex-wrap:wrap}
+
+  /* why */
+  .why{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+  .why-main{background:var(--ink);color:#EAF2F0;border-radius:var(--r-card);padding:40px;display:flex;flex-direction:column;justify-content:space-between;min-height:360px}
+  .why-main h3{font-size:30px;line-height:1.15;margin-bottom:16px;color:#fff}
+  .why-main p{color:#B8C9C6;max-width:440px}
+  .why-main .quote{border-top:1px solid rgba(255,255,255,.14);padding-top:20px;margin-top:28px;font-size:15px;color:#B8C9C6}
+  .why-list{display:grid;gap:20px}
+  .why-item{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card);padding:26px 28px}
+  .why-item h3{font-size:20px;margin-bottom:6px}
+  .why-item p{color:var(--ink-2);font-size:16px}
+
+  /* doctors */
+  .docs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .doc{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+  .doc:hover{transform:translateY(-3px);box-shadow:0 20px 40px -28px rgba(15,42,42,.45)}
+  .doc-photo{aspect-ratio:4/3.2;background:linear-gradient(160deg,#DCE8E4,#C9DBD5);display:grid;place-items:center;font-family:var(--serif);font-size:56px;color:rgba(15,42,42,.35)}
+  .doc-body{padding:22px 24px 26px}
+  .doc-body h3{font-size:21px}
+  .doc-body .role{color:var(--accent);font-weight:500;font-size:15px;margin:4px 0 10px}
+  .doc-body p{font-size:15px;color:var(--ink-2)}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s;border-top:1px solid var(--line)}
+  .step{padding:28px 24px 0 0;counter-increment:s}
+  .step::before{content:"0" counter(s);display:block;font-family:var(--serif);font-size:15px;color:var(--accent);margin-bottom:14px}
+  .step h3{font-size:20px;margin-bottom:8px}
+  .step p{font-size:15px;color:var(--ink-2)}
+
+  /* faq */
+  .faq{max-width:820px}
+  details{border-bottom:1px solid var(--line)}
+  summary{list-style:none;cursor:pointer;padding:24px 44px 24px 0;font-family:var(--serif);font-size:21px;position:relative}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"";position:absolute;right:6px;top:50%;width:12px;height:12px;border-right:2px solid var(--ink-2);border-bottom:2px solid var(--ink-2);transform:translateY(-70%) rotate(45deg);transition:transform .3s var(--ease)}
+  details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+  details p{padding:0 0 24px;color:var(--ink-2);max-width:680px}
+
+  /* booking */
+  .book{background:var(--ink);border-radius:var(--r-modal);color:#EAF2F0;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+  .book-info{padding:56px}
+  .book-info h2{font-size:clamp(32px,3.4vw,44px);line-height:1.1;color:#fff;margin-bottom:16px}
+  .book-info p{color:#B8C9C6;margin-bottom:32px}
+  .contacts{display:grid;gap:16px;font-size:16px}
+  .contacts span{display:block;font-size:13px;color:#8FA6A2}
+  .contacts a{text-decoration:none;font-weight:600;color:#fff}
+  form{background:var(--paper);color:var(--ink);padding:48px;display:grid;gap:16px;align-content:start}
+  label{font-size:14px;font-weight:500;color:var(--ink-2);display:grid;gap:6px}
+  input,select{min-height:50px;border:1px solid var(--line);border-radius:10px;padding:0 14px;font:16px var(--sans);color:var(--ink);background:#fff;transition:border-color .3s var(--ease)}
+  input:hover,select:hover{border-color:#C9C2B6}
+  input[aria-invalid="true"]{border-color:var(--warn)}
+  .err{font-size:13px;color:var(--warn);min-height:0}
+  .consent{font-size:13px;color:var(--muted)}
+  .ok{display:none;text-align:center;padding:24px 0}
+  .ok h3{font-size:26px;margin-bottom:8px}
+  .ok p{color:var(--ink-2)}
+  form.sent .field,form.sent .consent,form.sent button[type=submit]{display:none}
+  form.sent .ok{display:block}
+
+  footer{padding:40px 0 56px;color:var(--muted);font-size:14px}
+  .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:28px}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}*{transition:none!important}}
+
+  /* mobile book bar */
+  .mbar{display:none}
+  @media (max-width:960px){
+    .hero-grid,.sec-head,.why,.book{grid-template-columns:1fr}
+    .docs{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr 1fr;row-gap:28px}
+    .nav-links{display:none}
+    .book-info,form{padding:36px 28px}
+  }
+  @media (max-width:620px){
+    body{font-size:16px}
+    .hero{padding:40px 0 56px}
+    section{padding:64px 0}
+    .docs,.steps{grid-template-columns:1fr}
+    .phone{display:none}
+    .hero-cta .btn{flex:1 1 100%}
+    .rows li{padding:18px 20px}
+    .price-foot{padding:18px 20px}
+    .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:30;gap:8px}
+    .mbar .btn{flex:1;box-shadow:0 10px 30px -10px rgba(15,42,42,.5)}
+    .mbar .btn-ghost{background:var(--paper);flex:0 0 52px;padding:0}
+    footer{padding-bottom:96px}
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#top">Бриз <small>стоматология</small></a>
+    <nav class="nav-links" aria-label="Разделы">
+      <a href="#prices">Цены</a><a href="#doctors">Врачи</a><a href="#how">Как проходит</a><a href="#faq">Вопросы</a>
+    </nav>
+    <div class="nav-right">
+      <a class="phone" href="tel:+78613300000">+7 861 330-00-00</a>
+      <a class="btn btn-primary" href="#book">Записаться</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <div class="eyebrow">Анапа · ул. Крымская, 99</div>
+        <h1>Лечим зубы <em>без боли</em> и без сюрпризов в чеке</h1>
+        <p class="lead">Цену называем до начала лечения и фиксируем в плане. Если в процессе что-то меняется — сначала говорим вам, потом делаем.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#book">Записаться на осмотр</a>
+          <a class="btn btn-ghost" href="#prices">Посмотреть цены</a>
+        </div>
+        <div class="facts">
+          <div><b>0 ₽</b>осмотр и план лечения</div>
+          <div><b>8:00–21:00</b>без выходных</div>
+          <div><b>1 год</b>гарантия на пломбы</div>
+        </div>
+      </div>
+
+      <div class="slot-card reveal" aria-label="Свободное время">
+        <div class="slot-head"><h3>Свободное время</h3><span class="live">онлайн</span></div>
+        <div class="days" id="days"></div>
+        <div class="times" id="times"></div>
+        <a class="btn btn-primary" href="#book" id="slotBtn">Выбрать время</a>
+        <div class="slot-note">Подтвердим звонком в течение 15 минут</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prices">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Цены — как есть, без звёздочек</h2>
+        <p>Итоговая стоимость зависит только от объёма работы. Точную сумму врач назовёт на бесплатном осмотре.</p>
+      </div>
+      <div class="prices reveal">
+        <div class="tabs" role="tablist" id="tabs"></div>
+        <ul class="rows" id="rows"></ul>
+        <div class="price-foot"><span>Рассрочка 0% до 12 месяцев на лечение от 30 000 ₽</span><a class="btn btn-ghost" href="#book">Записаться на осмотр</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap why">
+      <div class="why-main reveal">
+        <div>
+          <h3>Боитесь стоматолога? Это нормально, мы под это и работаем</h3>
+          <p>Анестезия компьютерной системой — укол почти не чувствуется. Перед каждым этапом врач объясняет, что будет делать, и вы в любой момент можете поднять руку и остановить.</p>
+        </div>
+        <div class="quote">Первый визит — только разговор и осмотр. Ничего не сверлим, если вы не решили лечиться.</div>
+      </div>
+      <div class="why-list">
+        <div class="why-item reveal"><h3>План лечения на руки</h3><p>Список работ, сроки и сумма — на бумаге и в Telegram. Можно показать дома и подумать.</p></div>
+        <div class="why-item reveal"><h3>Всё в одной клинике</h3><p>Снимок, терапевт, хирург и ортопед в одном здании. Не нужно ездить по городу с направлениями.</p></div>
+        <div class="why-item reveal"><h3>Напомним сами</h3><p>Перед визитом пришлём напоминание, а через полгода — позовём на бесплатную проверку.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="doctors">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Врачи</h2>
+        <p>Можно выбрать врача при записи или довериться администратору — он подберёт по вашей задаче.</p>
+      </div>
+      <div class="docs">
+        <article class="doc reveal"><div class="doc-photo">АК</div><div class="doc-body"><h3>Анна Ковалёва</h3><div class="role">Терапевт · стаж 11 лет</div><p>Лечение кариеса и каналов под микроскопом. Работает с теми, кто боится.</p></div></article>
+        <article class="doc reveal"><div class="doc-photo">ДС</div><div class="doc-body"><h3>Дмитрий Савин</h3><div class="role">Хирург-имплантолог · стаж 14 лет</div><p>Удаление зубов мудрости и имплантация за один визит.</p></div></article>
+        <article class="doc reveal"><div class="doc-photo">ЕМ</div><div class="doc-body"><h3>Елена Морозова</h3><div class="role">Гигиенист · стаж 7 лет</div><p>Профчистка Air Flow, отбеливание, детский приём с 4 лет.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="sec-head reveal"><h2>Как проходит первый визит</h2><p>Около 40 минут. Можно прийти просто посоветоваться.</p></div>
+      <div class="steps">
+        <div class="step reveal"><h3>Запись</h3><p>Оставляете заявку или звоните. Подбираем удобное время.</p></div>
+        <div class="step reveal"><h3>Осмотр и снимок</h3><p>Врач смотрит зубы, при необходимости делаем панорамный снимок.</p></div>
+        <div class="step reveal"><h3>План и цена</h3><p>Объясняем, что нужно сейчас, а что может подождать. Сумма — сразу.</p></div>
+        <div class="step reveal"><h3>Решаете вы</h3><p>Начать сразу, записаться на другой день или подумать — без давления.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head reveal"><h2>Частые вопросы</h2><p></p></div>
+      <div class="faq reveal">
+        <details><summary>Осмотр правда бесплатный?</summary><p>Да. Осмотр, консультация и план лечения — 0 ₽. Платно только снимок, если он нужен, — 900 ₽.</p></details>
+        <details><summary>Можно ли лечить зубы во время беременности?</summary><p>Можно и нужно, лучше во втором триместре. Используем безопасную анестезию, снимки — только по строгим показаниям.</p></details>
+        <details><summary>Принимаете детей?</summary><p>Да, с 4 лет. Первый приём для ребёнка — знакомство с врачом и креслом, без лечения.</p></details>
+        <details><summary>Есть ли налоговый вычет?</summary><p>Да. Выдаём справку для вычета 13% — можно вернуть часть денег за лечение себя, детей или родителей.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="book">
+    <div class="wrap">
+      <div class="book reveal">
+        <div class="book-info">
+          <h2>Запишитесь на бесплатный осмотр</h2>
+          <p>Оставьте телефон — администратор перезвонит в течение 15 минут и подберёт время.</p>
+          <div class="contacts">
+            <div><span>Телефон</span><a href="tel:+78613300000">+7 861 330-00-00</a></div>
+            <div><span>Адрес</span>Анапа, ул. Крымская, 99, 2 этаж</div>
+            <div><span>Часы работы</span>Ежедневно 8:00–21:00</div>
+          </div>
+        </div>
+        <form id="form" novalidate>
+          <label class="field">Как вас зовут<input name="name" autocomplete="given-name" placeholder="Имя"></label>
+          <label class="field">Телефон<input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__"><span class="err" id="phoneErr"></span></label>
+          <label class="field">Что беспокоит
+            <select name="service"><option>Хочу осмотр</option><option>Болит зуб</option><option>Чистка</option><option>Имплантация</option><option>Другое</option></select>
+          </label>
+          <label class="field">Удобное время<input name="slot" id="slotField" placeholder="Любое" readonly></label>
+          <button class="btn btn-primary" type="submit">Жду звонка</button>
+          <div class="consent">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</div>
+          <div class="ok" role="status"><h3>Заявка отправлена</h3><p>Перезвоним в течение 15 минут.</p></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© Стоматология «Бриз», Анапа. Лицензия ЛО-23-01-000000.</span>
+    <span>Концепт-проект для портфолио · Landrix</span>
+  </div>
+</footer>
+
+<div class="mbar"><a class="btn btn-ghost" href="tel:+78613300000" aria-label="Позвонить">☎</a><a class="btn btn-primary" href="#book">Записаться</a></div>
+
+<script>
+(() => {
+  // header border on scroll
+  const hdr = document.querySelector('header');
+  addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 8), {passive:true});
+
+  // slot picker (demo data, generated from today)
+  const daysEl = document.getElementById('days'), timesEl = document.getElementById('times');
+  const slotField = document.getElementById('slotField'), slotBtn = document.getElementById('slotBtn');
+  const wd = ['вс','пн','вт','ср','чт','пт','сб'], all = ['9:00','10:30','12:00','14:00','16:30','18:00'];
+  let pick = {day:0, time:null};
+  const days = [...Array(4)].map((_, i) => { const d = new Date(); d.setDate(d.getDate() + i); return d; });
+  const busy = (di, t) => (di * 7 + t.length * 3 + parseInt(t)) % 4 === 0 || (di === 0 && parseInt(t) < new Date().getHours() + 1);
+  const label = d => d.toLocaleDateString('ru-RU', {day:'numeric', month:'long'});
+  function render() {
+    daysEl.innerHTML = days.map((d, i) => `<button class="day" aria-pressed="${i === pick.day}" data-d="${i}">${i ? wd[d.getDay()] : 'сегодня'}<b>${d.getDate()}</b></button>`).join('');
+    timesEl.innerHTML = all.map(t => `<button class="time" ${busy(pick.day, t) ? 'disabled' : ''} aria-pressed="${pick.time === t}" data-t="${t}">${t}</button>`).join('');
+    slotBtn.textContent = pick.time ? `Записаться на ${pick.time}` : 'Выбрать время';
+  }
+  daysEl.addEventListener('click', e => { const b = e.target.closest('.day'); if (b) { pick = {day:+b.dataset.d, time:null}; render(); } });
+  timesEl.addEventListener('click', e => { const b = e.target.closest('.time'); if (b && !b.disabled) { pick.time = b.dataset.t; render();
+    slotField.value = `${label(days[pick.day])}, ${pick.time}`; } });
+  render();
+
+  // prices
+  const data = {
+    'Лечение': [['Осмотр и план лечения','с консультацией врача','0 ₽',1],['Лечение кариеса','пломба светового отверждения','от 3 900 ₽'],['Лечение каналов','под микроскопом, за 1 канал','от 6 500 ₽'],['Панорамный снимок','','900 ₽']],
+    'Гигиена': [['Профессиональная чистка','ультразвук + Air Flow + полировка','4 500 ₽',1],['Отбеливание','кабинетное, 1 визит','18 000 ₽'],['Фторирование','','1 200 ₽']],
+    'Хирургия': [['Удаление зуба','простое','от 2 500 ₽'],['Удаление зуба мудрости','сложное, с анестезией','от 6 000 ₽',1],['Имплант под ключ','имплант + коронка','от 45 000 ₽']],
+    'Детям': [['Знакомство с врачом','адаптационный визит','0 ₽',1],['Лечение молочного зуба','','от 2 800 ₽'],['Герметизация фиссур','1 зуб','1 500 ₽']]
+  };
+  const tabs = document.getElementById('tabs'), rows = document.getElementById('rows');
+  function show(k) {
+    tabs.innerHTML = Object.keys(data).map(n => `<button class="tab" role="tab" aria-selected="${n === k}">${n}</button>`).join('');
+    rows.innerHTML = data[k].map(([n, s, p, hit]) => `<li class="${hit ? 'hit' : ''}"><div class="name">${n}${s ? `<span>${s}</span>` : ''}</div><div class="price">${p.replace(/^от /, '<small>от </small>')}</div></li>`).join('');
+  }
+  tabs.addEventListener('click', e => { const b = e.target.closest('.tab'); if (b) show(b.textContent); });
+  show('Лечение');
+
+  // phone mask + form
+  const form = document.getElementById('form'), phone = form.phone, perr = document.getElementById('phoneErr');
+  phone.addEventListener('input', () => {
+    let d = phone.value.replace(/\D/g, '').replace(/^[78]/, '').slice(0, 10);
+    const p = [d.slice(0,3), d.slice(3,6), d.slice(6,8), d.slice(8,10)];
+    phone.value = d ? `+7 (${p[0]}${d.length > 3 ? ') ' + p[1] : ''}${d.length > 6 ? '-' + p[2] : ''}${d.length > 8 ? '-' + p[3] : ''}` : '';
+    phone.removeAttribute('aria-invalid'); perr.textContent = '';
+  });
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if (phone.value.replace(/\D/g, '').length < 11) { phone.setAttribute('aria-invalid', 'true'); perr.textContent = 'Проверьте номер — нужно 10 цифр после +7'; phone.focus(); return; }
+    form.classList.add('sent');
+  });
+
+  // reveal on scroll
+  const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>
