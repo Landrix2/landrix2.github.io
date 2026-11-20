@@ -3,8 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Бриз — стоматология в Анапе</title>
-<meta name="description" content="Стоматология «Бриз» в Анапе: лечение, чистка, имплантация. Запись онлайн за минуту.">
+<title>Стоматология «Бриз» в Анапе — лечение зубов без боли</title>
+<meta name="description" content="Стоматология «Бриз» в Анапе: лечение кариеса и каналов, чистка, имплантация, детский приём. Бесплатный осмотр, цены без звёздочек, онлайн-запись к врачу.">
+<link rel="canonical" href="https://landrix2.github.io/dental/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230E7C6B'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' font-weight='700' text-anchor='middle' fill='%23fff'%3EБ%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#0E7C6B">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Стоматология «Бриз»">
+<meta property="og:title" content="Стоматология «Бриз» в Анапе — лечение зубов без боли">
+<meta property="og:description" content="Бесплатный осмотр, цены без звёздочек, онлайн-запись к нужному врачу без звонков.">
+<meta property="og:url" content="https://landrix2.github.io/dental/">
+<meta property="og:image" content="https://landrix2.github.io/dental/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Стоматология «Бриз» в Анапе">
+<meta name="twitter:description" content="Бесплатный осмотр, цены без звёздочек, онлайн-запись к нужному врачу.">
+<meta name="twitter:image" content="https://landrix2.github.io/dental/og.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Dentist","name":"Стоматология «Бриз»","url":"https://landrix2.github.io/dental/","image":"https://landrix2.github.io/dental/og.png",
+"telephone":"+7-861-330-00-00","priceRange":"₽₽",
+"address":{"@type":"PostalAddress","streetAddress":"ул. Крымская, 99, 2 этаж","addressLocality":"Анапа","addressRegion":"Краснодарский край","addressCountry":"RU"},
+"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"21:00"}],
+"employee":[{"@type":"Person","name":"Анна Ковалёва","jobTitle":"Стоматолог-терапевт"},{"@type":"Person","name":"Дмитрий Савин","jobTitle":"Хирург-имплантолог"},{"@type":"Person","name":"Елена Морозова","jobTitle":"Гигиенист"}],
+"hasOfferCatalog":{"@type":"OfferCatalog","name":"Услуги","itemListElement":[
+{"@type":"Offer","itemOffered":{"@type":"Service","name":"Осмотр и план лечения"},"price":"0","priceCurrency":"RUB"},
+{"@type":"Offer","itemOffered":{"@type":"Service","name":"Профессиональная чистка"},"price":"4500","priceCurrency":"RUB"},
+{"@type":"Offer","itemOffered":{"@type":"Service","name":"Лечение кариеса"},"price":"3900","priceCurrency":"RUB"}]}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Осмотр правда бесплатный?","acceptedAnswer":{"@type":"Answer","text":"Да. Осмотр, консультация и план лечения — 0 ₽. Платно только снимок, если он нужен, — 900 ₽."}},
+{"@type":"Question","name":"Можно ли лечить зубы во время беременности?","acceptedAnswer":{"@type":"Answer","text":"Можно и нужно, лучше во втором триместре. Используем безопасную анестезию, снимки — только по строгим показаниям."}},
+{"@type":"Question","name":"Принимаете детей?","acceptedAnswer":{"@type":"Answer","text":"Да, с 4 лет. Первый приём для ребёнка — знакомство с врачом и креслом, без лечения."}},
+{"@type":"Question","name":"Есть ли налоговый вычет?","acceptedAnswer":{"@type":"Answer","text":"Да. Выдаём справку для вычета 13% — можно вернуть часть денег за лечение себя, детей или родителей."}}]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
@@ -165,6 +200,9 @@
   form.sent .field,form.sent .consent,form.sent button[type=submit]{display:none}
   form.sent .ok{display:block}
 
+  .skip{position:absolute;left:-9999px;top:8px;z-index:50;background:var(--accent);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none}
+  .skip:focus{left:12px}
+  .foot a{color:var(--muted)}
   footer{padding:40px 0 56px;color:var(--muted);font-size:14px}
   .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:28px}
 
@@ -192,7 +230,7 @@
     .seg{grid-template-columns:1fr 1fr}
     .slot-card{padding:20px}
     .dp b{font-size:13px}
-    .dp{font-size:11px;padding:8px 2px}
+    .dp{font-size:12px;padding:8px 2px}
     .price-foot{padding:18px 20px}
     .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:30;gap:8px}
     .mbar .btn{flex:1;box-shadow:0 10px 30px -10px rgba(15,42,42,.5)}
@@ -202,6 +240,7 @@
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Перейти к содержимому</a>
 
 <header id="top">
   <div class="wrap nav">
@@ -216,7 +255,7 @@
   </div>
 </header>
 
-<main>
+<main id="main">
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="reveal">
@@ -235,7 +274,7 @@
       </div>
 
       <div class="slot-card reveal" id="slots" aria-label="Свободное время">
-        <div class="slot-head"><h3>Свободное время</h3><span class="live">онлайн</span></div>
+        <div class="slot-head"><h2 style="font-size:20px">Свободное время</h2><span class="live">онлайн</span></div>
         <div class="docpick" id="docpick" aria-label="Врач"></div>
         <div class="days" id="days"></div>
         <div class="times" id="times"></div>
@@ -304,7 +343,7 @@
 
   <section id="faq">
     <div class="wrap">
-      <div class="sec-head reveal"><h2>Частые вопросы</h2><p></p></div>
+      <div class="sec-head reveal"><h2>Частые вопросы</h2><p>Если вашего вопроса здесь нет — напишите нам в Telegram или WhatsApp, ответим в течение часа.</p></div>
       <div class="faq reveal">
         <details><summary>Осмотр правда бесплатный?</summary><p>Да. Осмотр, консультация и план лечения — 0 ₽. Платно только снимок, если он нужен, — 900 ₽.</p></details>
         <details><summary>Можно ли лечить зубы во время беременности?</summary><p>Можно и нужно, лучше во втором триместре. Используем безопасную анестезию, снимки — только по строгим показаниям.</p></details>
@@ -326,7 +365,7 @@
             <div><span>Часы работы</span>Ежедневно 8:00–21:00</div>
           </div>
         </div>
-        <form id="form" novalidate>
+        <form id="form" method="post" action="#book" novalidate>
           <label class="field">Как вас зовут<input name="name" autocomplete="given-name" placeholder="Имя"></label>
           <label class="field">Телефон<input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__"><span class="err" id="phoneErr"></span></label>
           <label class="field">Что беспокоит
@@ -357,7 +396,7 @@
 
 <footer>
   <div class="wrap foot">
-    <span>© Стоматология «Бриз», Анапа. Лицензия ЛО-23-01-000000.</span>
+    <span>© Стоматология «Бриз», Анапа. Лицензия ЛО-23-01-000000. <a href="#book">Контакты</a> · <a href="#faq">Вопросы</a> · <a href="#top">Политика конфиденциальности</a></span>
     <span>Концепт-проект для портфолио · Landrix</span>
   </div>
 </footer>
