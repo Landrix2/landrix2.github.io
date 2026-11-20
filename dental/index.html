@@ -68,6 +68,11 @@
   .time:hover{border-color:var(--accent)}
   .time[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 6px 18px -8px rgba(14,124,107,.7)}
   .time:disabled{color:#B9C1BF;text-decoration:line-through;cursor:not-allowed;border-style:dashed}
+  .docpick{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:12px}
+  .dp{border:1px solid var(--line);border-radius:12px;padding:8px 4px;text-align:center;font:500 12px/1.3 var(--sans);color:var(--muted);background:none;cursor:pointer;transition:all .3s var(--ease)}
+  .dp b{display:block;font-size:14px;color:var(--ink);font-weight:600}
+  .dp:hover{border-color:var(--accent)}
+  .dp[aria-pressed="true"]{border-color:var(--accent);background:var(--soft)}
   .slot-card .btn{width:100%}
   .slot-note{font-size:13px;color:var(--muted);text-align:center;margin-top:12px}
 
@@ -110,7 +115,8 @@
   .doc-body{padding:22px 24px 26px}
   .doc-body h3{font-size:21px}
   .doc-body .role{color:var(--accent);font-weight:500;font-size:15px;margin:4px 0 10px}
-  .doc-body p{font-size:15px;color:var(--ink-2)}
+  .doc-body p{font-size:15px;color:var(--ink-2);margin-bottom:18px}
+  .doc-body .btn{width:100%;min-height:44px;font-size:15px}
 
   /* steps */
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s;border-top:1px solid var(--line)}
@@ -143,6 +149,16 @@
   input[aria-invalid="true"]{border-color:var(--warn)}
   .err{font-size:13px;color:var(--warn);min-height:0}
   .consent{font-size:13px;color:var(--muted)}
+  fieldset{border:0;display:grid;gap:6px}
+  legend{font-size:14px;font-weight:500;color:var(--ink-2);margin-bottom:6px}
+  .seg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+  .seg label{display:block;cursor:pointer}
+  .seg input{position:absolute;opacity:0;pointer-events:none}
+  .seg span{display:grid;place-items:center;min-height:44px;border:1px solid var(--line);border-radius:10px;font:500 14px var(--sans);color:var(--ink);transition:all .3s var(--ease)}
+  .seg label:hover span{border-color:var(--accent)}
+  .seg input:checked+span{border-color:var(--accent);background:var(--soft);color:var(--accent)}
+  .seg input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+  .hint{font-size:13px;color:var(--muted)}
   .ok{display:none;text-align:center;padding:24px 0}
   .ok h3{font-size:26px;margin-bottom:8px}
   .ok p{color:var(--ink-2)}
@@ -173,6 +189,7 @@
     .phone{display:none}
     .hero-cta .btn{flex:1 1 100%}
     .rows li{padding:18px 20px}
+    .seg{grid-template-columns:1fr 1fr}
     .price-foot{padding:18px 20px}
     .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:30;gap:8px}
     .mbar .btn{flex:1;box-shadow:0 10px 30px -10px rgba(15,42,42,.5)}
@@ -214,12 +231,13 @@
         </div>
       </div>
 
-      <div class="slot-card reveal" aria-label="Свободное время">
+      <div class="slot-card reveal" id="slots" aria-label="Свободное время">
         <div class="slot-head"><h3>Свободное время</h3><span class="live">онлайн</span></div>
+        <div class="docpick" id="docpick" aria-label="Врач"></div>
         <div class="days" id="days"></div>
         <div class="times" id="times"></div>
         <a class="btn btn-primary" href="#book" id="slotBtn">Выбрать время</a>
-        <div class="slot-note">Подтвердим звонком в течение 15 минут</div>
+        <div class="slot-note">Подтвердим в Telegram, WhatsApp или SMS — без звонков, если не попросите</div>
       </div>
     </div>
   </section>
@@ -259,12 +277,12 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <h2>Врачи</h2>
-        <p>Можно выбрать врача при записи или довериться администратору — он подберёт по вашей задаче.</p>
+        <p>Записывайтесь сразу к своему врачу — свободное время покажем именно у него. Или выберите «любой», подберём по задаче.</p>
       </div>
       <div class="docs">
-        <article class="doc reveal"><div class="doc-photo">АК</div><div class="doc-body"><h3>Анна Ковалёва</h3><div class="role">Терапевт · стаж 11 лет</div><p>Лечение кариеса и каналов под микроскопом. Работает с теми, кто боится.</p></div></article>
-        <article class="doc reveal"><div class="doc-photo">ДС</div><div class="doc-body"><h3>Дмитрий Савин</h3><div class="role">Хирург-имплантолог · стаж 14 лет</div><p>Удаление зубов мудрости и имплантация за один визит.</p></div></article>
-        <article class="doc reveal"><div class="doc-photo">ЕМ</div><div class="doc-body"><h3>Елена Морозова</h3><div class="role">Гигиенист · стаж 7 лет</div><p>Профчистка Air Flow, отбеливание, детский приём с 4 лет.</p></div></article>
+        <article class="doc reveal"><div class="doc-photo">АК</div><div class="doc-body"><h3>Анна Ковалёва</h3><div class="role">Терапевт · стаж 11 лет</div><p>Лечение кариеса и каналов под микроскопом. Работает с теми, кто боится.</p><a class="btn btn-ghost" href="#slots" data-doc="1">Записаться к ней</a></div></article>
+        <article class="doc reveal"><div class="doc-photo">ДС</div><div class="doc-body"><h3>Дмитрий Савин</h3><div class="role">Хирург-имплантолог · стаж 14 лет</div><p>Удаление зубов мудрости и имплантация за один визит.</p><a class="btn btn-ghost" href="#slots" data-doc="2">Записаться к нему</a></div></article>
+        <article class="doc reveal"><div class="doc-photo">ЕМ</div><div class="doc-body"><h3>Елена Морозова</h3><div class="role">Гигиенист · стаж 7 лет</div><p>Профчистка Air Flow, отбеливание, детский приём с 4 лет.</p><a class="btn btn-ghost" href="#slots" data-doc="3">Записаться к ней</a></div></article>
       </div>
     </div>
   </section>
@@ -273,7 +291,7 @@
     <div class="wrap">
       <div class="sec-head reveal"><h2>Как проходит первый визит</h2><p>Около 40 минут. Можно прийти просто посоветоваться.</p></div>
       <div class="steps">
-        <div class="step reveal"><h3>Запись</h3><p>Оставляете заявку или звоните. Подбираем удобное время.</p></div>
+        <div class="step reveal"><h3>Запись</h3><p>Выбираете врача и время на сайте или звоните. Подтверждаем там, где вам удобно.</p></div>
         <div class="step reveal"><h3>Осмотр и снимок</h3><p>Врач смотрит зубы, при необходимости делаем панорамный снимок.</p></div>
         <div class="step reveal"><h3>План и цена</h3><p>Объясняем, что нужно сейчас, а что может подождать. Сумма — сразу.</p></div>
         <div class="step reveal"><h3>Решаете вы</h3><p>Начать сразу, записаться на другой день или подумать — без давления.</p></div>
@@ -298,7 +316,7 @@
       <div class="book reveal">
         <div class="book-info">
           <h2>Запишитесь на бесплатный осмотр</h2>
-          <p>Оставьте телефон — администратор перезвонит в течение 15 минут и подберёт время.</p>
+          <p>Оставьте телефон и выберите, как подтвердить запись. Не любите звонки — не будем звонить.</p>
           <div class="contacts">
             <div><span>Телефон</span><a href="tel:+78613300000">+7 861 330-00-00</a></div>
             <div><span>Адрес</span>Анапа, ул. Крымская, 99, 2 этаж</div>
@@ -311,10 +329,23 @@
           <label class="field">Что беспокоит
             <select name="service"><option>Хочу осмотр</option><option>Болит зуб</option><option>Чистка</option><option>Имплантация</option><option>Другое</option></select>
           </label>
-          <label class="field">Удобное время<input name="slot" id="slotField" placeholder="Любое" readonly></label>
-          <button class="btn btn-primary" type="submit">Жду звонка</button>
+          <label class="field">Врач
+            <select name="doctor" id="docField"><option value="0">Любой, подберите по задаче</option><option value="1">Анна Ковалёва, терапевт</option><option value="2">Дмитрий Савин, хирург</option><option value="3">Елена Морозова, гигиенист</option></select>
+          </label>
+          <label class="field">Удобное время<input name="slot" id="slotField" placeholder="Выберите вверху или оставьте — подберём" readonly></label>
+          <fieldset class="field">
+            <legend>Как подтвердить запись</legend>
+            <div class="seg">
+              <label><input type="radio" name="confirm" value="tg" checked><span>Telegram</span></label>
+              <label><input type="radio" name="confirm" value="wa"><span>WhatsApp</span></label>
+              <label><input type="radio" name="confirm" value="sms"><span>SMS</span></label>
+              <label><input type="radio" name="confirm" value="call"><span>Звонок</span></label>
+            </div>
+            <div class="hint" id="confHint">Напишем на этот номер в Telegram, звонить не будем.</div>
+          </fieldset>
+          <button class="btn btn-primary" type="submit" id="sendBtn">Записаться</button>
           <div class="consent">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</div>
-          <div class="ok" role="status"><h3>Заявка отправлена</h3><p>Перезвоним в течение 15 минут.</p></div>
+          <div class="ok" role="status"><h3>Заявка отправлена</h3><p id="okText">Подтвердим запись в течение 15 минут.</p></div>
         </form>
       </div>
     </div>
@@ -340,18 +371,25 @@
   const daysEl = document.getElementById('days'), timesEl = document.getElementById('times');
   const slotField = document.getElementById('slotField'), slotBtn = document.getElementById('slotBtn');
   const wd = ['вс','пн','вт','ср','чт','пт','сб'], all = ['9:00','10:30','12:00','14:00','16:30','18:00'];
-  let pick = {day:0, time:null};
+  const docs = [['Любой','врач'],['Ковалёва','терапевт'],['Савин','хирург'],['Морозова','гигиенист']];
+  const docEl = document.getElementById('docpick'), docField = document.getElementById('docField');
+  let pick = {doc:0, day:0, time:null};
   const days = [...Array(4)].map((_, i) => { const d = new Date(); d.setDate(d.getDate() + i); return d; });
-  const busy = (di, t) => (di * 7 + t.length * 3 + parseInt(t)) % 4 === 0 || (di === 0 && parseInt(t) < new Date().getHours() + 1);
+  const busy = (di, t) => (pick.doc ? (di * 5 + pick.doc * 3 + parseInt(t) * 7) % 3 === 0 : (di * 7 + t.length * 3 + parseInt(t)) % 4 === 0) || (di === 0 && parseInt(t) < new Date().getHours() + 1);
   const label = d => d.toLocaleDateString('ru-RU', {day:'numeric', month:'long'});
   function render() {
+    docEl.innerHTML = docs.map(([n, r], i) => `<button class="dp" aria-pressed="${i === pick.doc}" data-i="${i}"><b>${n}</b>${r}</button>`).join('');
     daysEl.innerHTML = days.map((d, i) => `<button class="day" aria-pressed="${i === pick.day}" data-d="${i}">${i ? wd[d.getDay()] : 'сегодня'}<b>${d.getDate()}</b></button>`).join('');
     timesEl.innerHTML = all.map(t => `<button class="time" ${busy(pick.day, t) ? 'disabled' : ''} aria-pressed="${pick.time === t}" data-t="${t}">${t}</button>`).join('');
     slotBtn.textContent = pick.time ? `Записаться на ${pick.time}` : 'Выбрать время';
   }
-  daysEl.addEventListener('click', e => { const b = e.target.closest('.day'); if (b) { pick = {day:+b.dataset.d, time:null}; render(); } });
+  const setDoc = i => { pick = {doc:i, day:pick.day, time:null}; docField.value = i; slotField.value = ''; render(); };
+  docEl.addEventListener('click', e => { const b = e.target.closest('.dp'); if (b) setDoc(+b.dataset.i); });
+  docField.addEventListener('change', () => setDoc(+docField.value));
+  document.querySelectorAll('[data-doc]').forEach(a => a.addEventListener('click', () => setDoc(+a.dataset.doc)));
+  daysEl.addEventListener('click', e => { const b = e.target.closest('.day'); if (b) { pick = {doc:pick.doc, day:+b.dataset.d, time:null}; render(); } });
   timesEl.addEventListener('click', e => { const b = e.target.closest('.time'); if (b && !b.disabled) { pick.time = b.dataset.t; render();
-    slotField.value = `${label(days[pick.day])}, ${pick.time}`; } });
+    slotField.value = `${label(days[pick.day])}, ${pick.time}${pick.doc ? ' · ' + docs[pick.doc][0] : ''}`; } });
   render();
 
   // prices
@@ -377,9 +415,16 @@
     phone.value = d ? `+7 (${p[0]}${d.length > 3 ? ') ' + p[1] : ''}${d.length > 6 ? '-' + p[2] : ''}${d.length > 8 ? '-' + p[3] : ''}` : '';
     phone.removeAttribute('aria-invalid'); perr.textContent = '';
   });
+  const conf = {tg:['Напишем на этот номер в Telegram, звонить не будем.','Пришлём подтверждение в Telegram в течение 15 минут.'],
+    wa:['Напишем на этот номер в WhatsApp, звонить не будем.','Пришлём подтверждение в WhatsApp в течение 15 минут.'],
+    sms:['Пришлём SMS с датой и временем, звонить не будем.','Пришлём SMS с подтверждением в течение 15 минут.'],
+    call:['Администратор перезвонит в течение 15 минут.','Перезвоним в течение 15 минут.']};
+  const hint = document.getElementById('confHint'), okText = document.getElementById('okText');
+  form.addEventListener('change', e => { if (e.target.name === 'confirm') hint.textContent = conf[e.target.value][0]; });
   form.addEventListener('submit', e => {
     e.preventDefault();
     if (phone.value.replace(/\D/g, '').length < 11) { phone.setAttribute('aria-invalid', 'true'); perr.textContent = 'Проверьте номер — нужно 10 цифр после +7'; phone.focus(); return; }
+    okText.textContent = conf[form.confirm.value][1];
     form.classList.add('sent');
   });
 
