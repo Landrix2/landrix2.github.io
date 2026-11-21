@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Шиномонтаж «Колесо 24» в Анапе — запись онлайн без очереди</title>
+<meta name="description" content="Шиномонтаж в Анапе с онлайн-записью: выбираете время, цена фиксируется при записи и не меняется после работы. Переобувка, балансировка, ремонт проколов, хранение шин.">
+<link rel="canonical" href="https://landrix2.github.io/shina/">
+<meta name="theme-color" content="#06080C">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2306080C'/%3E%3Ccircle cx='32' cy='32' r='19' fill='none' stroke='%233D8BFF' stroke-width='7'/%3E%3Ccircle cx='32' cy='32' r='6' fill='%233D8BFF'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Шиномонтаж «Колесо 24» — запись без очереди">
+<meta property="og:description" content="Выберите время онлайн. Цена фиксируется при записи.">
+<meta property="og:image" content="https://landrix2.github.io/shina/og.png">
+<meta property="og:url" content="https://landrix2.github.io/shina/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"AutoRepair","name":"Шиномонтаж «Колесо 24»","url":"https://landrix2.github.io/shina/","telephone":"+7-918-000-00-24","priceRange":"₽",
+"address":{"@type":"PostalAddress","streetAddress":"Симферопольское шоссе, 0","addressLocality":"Анапа","addressRegion":"Краснодарский край","addressCountry":"RU"},
+"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"21:00"}]}
+</script>
+<style>
+:root{
+  --bg:#06080C; --ink:#EEF3FF; --ink2:#A9B4C8; --muted:#6C7890;
+  --glass:rgba(255,255,255,.055); --glass2:rgba(255,255,255,.09); --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.16);
+  --blue:#3D8BFF; --blue2:#6AA8FF; --blue-soft:rgba(61,139,255,.14); --ok:#3DDC97; --warn:#FFB547;
+  --r-card:16px; --r-btn:10px; --r-modal:20px; --ease:cubic-bezier(.25,1,.5,1);
+  --sans:"Manrope",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:var(--sans);color:var(--ink);background:transparent;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
+button,input{font:inherit;color:inherit}
+a{color:inherit;text-decoration:none}
+
+/* backdrop: photo + grid + glow */
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+header,main,footer,.mbar{position:relative;z-index:1}
+header{position:sticky}
+.mbar{position:fixed}
+.bg .photo{position:absolute;right:0;top:0;height:100%;width:min(62vw,820px);background:url(img/hero.jpg) center/cover no-repeat;opacity:.7;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 45%);mask-image:linear-gradient(90deg,transparent 0%,#000 45%)}
+.bg .grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;opacity:.35;
+  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 30% 30%,#000,transparent 75%);mask-image:radial-gradient(ellipse 70% 60% at 30% 30%,#000,transparent 75%)}
+.bg .glow{position:absolute;width:720px;height:720px;left:-200px;top:-260px;background:radial-gradient(circle,rgba(61,139,255,.28),transparent 60%);filter:blur(20px)}
+.bg .glow.b{left:auto;right:-240px;top:auto;bottom:-300px;background:radial-gradient(circle,rgba(61,139,255,.16),transparent 60%)}
+.bg .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,8,12,.0) 40%,rgba(6,8,12,.85) 100%)}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:var(--r-card);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3)}
+
+/* top bar */
+header{position:sticky;top:0;z-index:30;padding:14px 0;transition:background .3s var(--ease),border-color .3s var(--ease);border-bottom:1px solid transparent}
+header.scrolled{background:rgba(6,8,12,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em;font-size:18px}
+.logo i{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:var(--blue-soft);border:1px solid rgba(61,139,255,.4);box-shadow:0 0 18px rgba(61,139,255,.35)}
+.logo i::before{content:"";width:12px;height:12px;border-radius:50%;border:3px solid var(--blue2)}
+.bar-r{display:flex;gap:10px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--ink2);padding:8px 12px;border-radius:999px}
+.status b{color:var(--ok);font-weight:600}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(61,220,151,.15);animation:pulse 2.4s var(--ease) infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(61,220,151,.0)}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:var(--r-btn);border:1px solid transparent;font-weight:700;font-size:15px;cursor:pointer;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s var(--ease),border-color .3s var(--ease)}
+.btn-blue{background:var(--blue);color:#fff;box-shadow:0 8px 28px -10px rgba(61,139,255,.9),inset 0 1px 0 rgba(255,255,255,.25)}
+.btn-blue:hover{transform:translateY(-1px);box-shadow:0 12px 36px -8px rgba(61,139,255,1),inset 0 1px 0 rgba(255,255,255,.25)}
+.btn-ghost{background:var(--glass);border-color:var(--line2);color:var(--ink)}
+.btn-ghost:hover{border-color:rgba(61,139,255,.6);box-shadow:0 0 22px -6px rgba(61,139,255,.6)}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+:focus-visible{outline:2px solid var(--blue2);outline-offset:3px}
+
+/* hero */
+.hero{padding:56px 0 40px}
+.kicker{display:inline-flex;align-items:center;gap:8px;font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--blue2);padding:7px 12px;border-radius:999px;background:var(--blue-soft);border:1px solid rgba(61,139,255,.3);margin-bottom:22px}
+h1{font-size:clamp(38px,6.4vw,72px);line-height:1.02;letter-spacing:-.035em;font-weight:800;max-width:720px;margin-bottom:20px}
+h1 span{background:linear-gradient(90deg,#fff 0%,var(--blue2) 60%,var(--blue) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:18px;color:var(--ink2);max-width:520px;margin-bottom:30px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:40px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,190px));gap:12px}
+.stat{padding:16px 18px}
+.stat b{display:block;font-size:24px;letter-spacing:-.02em}
+.stat span{font-size:13px;color:var(--ink2)}
+.stat.live b{color:var(--ok)}
+
+section{padding:56px 0}
+.h2{font-size:clamp(28px,3.6vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-bottom:10px}
+.sub{color:var(--ink2);max-width:560px;margin-bottom:28px}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:1.25fr .9fr;gap:16px}
+.calc-l{padding:24px}
+.lbl{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{min-height:42px;padding:0 15px;border-radius:10px;border:1px solid var(--line2);background:rgba(255,255,255,.03);cursor:pointer;font-weight:600;font-size:14px;transition:all .3s var(--ease)}
+.chip:hover{border-color:rgba(61,139,255,.6)}
+.chip[aria-pressed="true"]{background:var(--blue-soft);border-color:var(--blue);color:#fff;box-shadow:0 0 20px -6px rgba(61,139,255,.8)}
+.svc{display:grid;gap:8px}
+.svc label{display:grid;grid-template-columns:22px 1fr auto;gap:12px;align-items:center;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.025);cursor:pointer;transition:all .3s var(--ease)}
+.svc label:hover{border-color:var(--line2)}
+.svc input{appearance:none;width:22px;height:22px;border-radius:7px;border:1.5px solid var(--line2);display:grid;place-items:center;transition:all .3s var(--ease);cursor:pointer}
+.svc input:checked{background:var(--blue);border-color:var(--blue);box-shadow:0 0 14px -2px rgba(61,139,255,.9)}
+.svc input:checked::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:translateY(-1px) rotate(45deg)}
+.svc label:has(input:checked){border-color:rgba(61,139,255,.45);background:rgba(61,139,255,.07)}
+.svc .n{font-weight:600}
+.svc .n small{display:block;font-weight:500;font-size:13px;color:var(--muted)}
+.svc .p{font-family:var(--mono);font-size:14px;color:var(--ink2);white-space:nowrap}
+.calc-r{padding:24px;display:flex;flex-direction:column;gap:16px;position:sticky;top:84px;align-self:start}
+.sum-row{display:flex;justify-content:space-between;font-size:14px;color:var(--ink2);padding:6px 0;border-bottom:1px dashed var(--line)}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin-top:4px}
+.total b{font-size:40px;letter-spacing:-.03em}
+.fix{display:flex;gap:10px;font-size:13px;color:var(--ink2);padding:12px 14px;border-radius:12px;background:rgba(61,220,151,.07);border:1px solid rgba(61,220,151,.25)}
+.fix::before{content:"✓";color:var(--ok);font-weight:800}
+.calc-r .btn{width:100%}
+
+/* why */
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.why .glass{padding:22px}
+.why .ic{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:var(--blue-soft);border:1px solid rgba(61,139,255,.3);color:var(--blue2);font:600 16px var(--mono);margin-bottom:16px}
+.why h3{font-size:17px;margin-bottom:6px;letter-spacing:-.01em}
+.why p{font-size:14px;color:var(--ink2)}
+
+/* my booking */
+.my{display:none;padding:20px 22px;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-color:rgba(61,139,255,.45);box-shadow:0 0 40px -18px rgba(61,139,255,.9)}
+.my.on{display:flex}
+.my small{display:block;font:500 12px var(--mono);color:var(--blue2);letter-spacing:.06em;text-transform:uppercase}
+.my b{font-size:18px}
+.my .acts{display:flex;gap:8px}
+
+/* faq */
+.faq{max-width:760px}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;font-weight:700;font-size:17px;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);font:500 22px var(--mono);color:var(--blue2);transition:transform .3s var(--ease)}
+details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+details p{padding:0 0 20px;color:var(--ink2);max-width:640px}
+
+footer{padding:40px 0 110px;color:var(--muted);font-size:13px}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px}
+.foot a{text-decoration:underline;text-underline-offset:3px}
+
+/* bottom sheet booking */
+.scrim{position:fixed;inset:0;z-index:50;background:rgba(3,5,8,.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .32s var(--ease)}
+.scrim.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;z-index:60;left:50%;bottom:0;width:min(560px,100%);max-height:92vh;overflow:auto;transform:translate(-50%,104%);transition:transform .52s var(--ease);
+  background:rgba(14,18,26,.92);backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4);border:1px solid var(--line2);border-bottom:0;border-radius:var(--r-modal) var(--r-modal) 0 0;padding:10px 22px 26px;box-shadow:0 -30px 80px -20px rgba(0,0,0,.8)}
+.sheet.on{transform:translate(-50%,0)}
+@media (min-width:700px){.sheet{bottom:50%;border-radius:var(--r-modal);border-bottom:1px solid var(--line2);transform:translate(-50%,calc(50% + 40px)) scale(.97);opacity:0;pointer-events:none;transition:transform .52s var(--ease),opacity .32s var(--ease)}
+  .sheet.on{transform:translate(-50%,50%) scale(1);opacity:1;pointer-events:auto}}
+.grab{width:40px;height:4px;border-radius:4px;background:var(--line2);margin:0 auto 14px}
+.sh-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.sh-head h3{font-size:20px;letter-spacing:-.02em}
+.x{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:none;cursor:pointer;font-size:18px;color:var(--ink2);transition:border-color .3s var(--ease)}
+.x:hover{border-color:var(--line2)}
+.stepn{font:500 12px var(--mono);color:var(--muted);margin-bottom:12px}
+.prog{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:20px}
+.prog i{height:3px;border-radius:3px;background:var(--line);transition:background .3s var(--ease),box-shadow .3s var(--ease)}
+.prog i.on{background:var(--blue);box-shadow:0 0 10px rgba(61,139,255,.8)}
+.step{display:none}
+.step.on{display:block;animation:in .32s var(--ease)}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.pick{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-radius:12px;background:var(--blue-soft);border:1px solid rgba(61,139,255,.35);margin-bottom:18px;font-weight:600;font-size:15px}
+.pick{gap:12px}
+.pick span{font-family:var(--mono);color:var(--blue2);white-space:nowrap}
+.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-bottom:16px}
+.day{border:1px solid var(--line);border-radius:12px;padding:8px 0;background:rgba(255,255,255,.025);cursor:pointer;text-align:center;font-size:12px;color:var(--muted);transition:all .3s var(--ease)}
+.day b{display:block;font-size:17px;color:var(--ink)}
+.day[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:rgba(255,255,255,.8);box-shadow:0 0 22px -6px rgba(61,139,255,1)}
+.day[aria-pressed="true"] b{color:#fff}
+.times{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:8px}
+.time{min-height:44px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.025);cursor:pointer;font:500 14px var(--mono);transition:all .3s var(--ease)}
+.time:hover:not(:disabled){border-color:rgba(61,139,255,.6)}
+.time[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 0 18px -4px rgba(61,139,255,1)}
+.time:disabled{opacity:.28;text-decoration:line-through;cursor:not-allowed}
+.hint{font-size:13px;color:var(--muted);margin:6px 0 18px}
+.field{display:grid;gap:6px;margin-bottom:14px;font-size:13px;color:var(--ink2);font-weight:600}
+.field input{min-height:50px;border-radius:12px;border:1px solid var(--line2);background:rgba(255,255,255,.04);padding:0 14px;font-size:16px;font-weight:500;transition:border-color .3s var(--ease),box-shadow .3s var(--ease)}
+.field input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(61,139,255,.15)}
+.field input[aria-invalid="true"]{border-color:#FF6B6B}
+.err{color:#FF8A8A;font-size:12px;min-height:0}
+.seg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:18px}
+.seg label{cursor:pointer}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:grid;place-items:center;min-height:44px;border-radius:10px;border:1px solid var(--line);font-size:13px;font-weight:600;transition:all .3s var(--ease)}
+.seg input:checked+span{border-color:var(--blue);background:var(--blue-soft);color:#fff}
+.seg input:focus-visible+span{outline:2px solid var(--blue2);outline-offset:2px}
+.nav{display:flex;gap:8px}
+.nav .btn{flex:1}
+.nav .btn-ghost{flex:0 0 auto}
+.recap{display:grid;gap:2px;margin-bottom:18px}
+.recap div{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px}
+.recap div span{color:var(--muted)}
+.recap div b{text-align:right}
+.done{text-align:center;padding:10px 0 4px}
+.done .ring{width:72px;height:72px;margin:6px auto 16px;border-radius:50%;display:grid;place-items:center;background:rgba(61,220,151,.1);border:1px solid rgba(61,220,151,.4);box-shadow:0 0 40px -8px rgba(61,220,151,.7);font-size:30px;color:var(--ok)}
+.done h3{font-size:22px;margin-bottom:6px}
+.done p{color:var(--ink2);font-size:15px;margin-bottom:20px}
+
+/* mobile bar */
+.mbar{display:none}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,.reveal{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+
+@media (max-width:900px){
+  .calc{grid-template-columns:1fr}.calc-r{position:static}
+  .why{grid-template-columns:1fr 1fr}
+  .bg .photo{width:100vw;opacity:.55;background-position:30% center;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.9) 0%,#000 40%,transparent 95%);mask-image:linear-gradient(180deg,rgba(0,0,0,.9) 0%,#000 40%,transparent 95%)}
+  .hero h1,.hero .lead{text-shadow:0 2px 24px rgba(6,8,12,.9)}
+}
+@media (max-width:600px){
+  .wrap{padding:0 16px}
+  .hero{padding:28px 0 24px}
+  .lead{font-size:16px}
+  .bar-r .btn,.status.desk{display:none}
+  .stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .stat{padding:12px}.stat b{font-size:19px}.stat span{font-size:12px}
+  .cta .btn{flex:1 1 100%}
+  .why{grid-template-columns:1fr}
+  .seg{grid-template-columns:1fr 1fr}
+  .days{gap:4px}.day b{font-size:15px}
+  section{padding:40px 0}
+  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:40;gap:8px}
+  .mbar .btn{flex:1}
+  .mbar .btn-ghost{flex:0 0 52px;padding:0;background:rgba(14,18,26,.85);backdrop-filter:blur(14px)}
+}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><div class="glow"></div><div class="glow b"></div><div class="grid"></div><div class="photo"></div><div class="shade"></div></div>
+
+<header id="top">
+  <div class="wrap bar">
+    <a class="logo" href="#top"><i></i>Колесо 24</a>
+    <div class="bar-r">
+      <span class="status glass desk"><span class="dot"></span>Открыто · ожидание <b id="waitTop">~15 мин</b></span>
+      <a class="btn btn-ghost" href="tel:+79180000024">+7 918 000-00-24</a>
+      <button class="btn btn-blue" data-book>Записаться</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="kicker">Анапа · Симферопольское ш. · 08:00–21:00</div>
+        <h1>Переобувка <span>без живой очереди</span></h1>
+        <p class="lead">Выберите время онлайн — бокс будет свободен ровно к вашему приезду. Цена фиксируется при записи и не меняется после работы.</p>
+        <div class="cta">
+          <button class="btn btn-blue" data-book>Выбрать время</button>
+          <a class="btn btn-ghost" href="#price">Рассчитать цену</a>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat glass live reveal"><b id="freeCnt">7 окон</b><span>свободно сегодня</span></div>
+        <div class="stat glass reveal"><b>~25 мин</b><span>переобувка 4 колёс</span></div>
+        <div class="stat glass reveal"><b>2 бокса</b><span>R13–R22, кроссоверы</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="my glass" id="my"><div><small>Ваша запись</small><b id="myText"></b></div><div class="acts"><button class="btn btn-ghost" id="myMove">Перенести</button><button class="btn btn-ghost" id="myCancel">Отменить</button></div></div></div>
+
+  <section id="price">
+    <div class="wrap">
+      <h2 class="h2 reveal">Цена — до приезда, а не после</h2>
+      <p class="sub reveal">Отметьте радиус и что нужно сделать. Сумма, которую вы видите, попадёт в запись — мастер не сможет её поменять.</p>
+      <div class="calc">
+        <div class="calc-l glass reveal">
+          <p class="lbl">Тип авто</p>
+          <div class="chips" id="cars"></div>
+          <p class="lbl">Радиус колеса</p>
+          <div class="chips" id="radii"></div>
+          <p class="lbl">Услуги · за 4 колеса</p>
+          <div class="svc" id="svc"></div>
+        </div>
+        <aside class="calc-r glass reveal">
+          <p class="lbl">Итого</p>
+          <div id="lines"></div>
+          <div class="total"><span class="lbl" style="margin:0">к оплате</span><b id="total">0 ₽</b></div>
+          <div class="fix">Цена фиксируется в записи. Доплаты — только если вы сами согласились на доп. работу.</div>
+          <button class="btn btn-blue" data-book id="calcBook">Записаться с этой ценой</button>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="h2 reveal">Почему удобнее, чем «приезжайте, там разберёмся»</h2>
+      <p class="sub reveal">Собрали всё, на что чаще всего жалуются в отзывах о шиномонтажах — и убрали.</p>
+      <div class="why">
+        <div class="glass reveal"><div class="ic">01</div><h3>Без очереди</h3><p>Бокс закреплён за вами на время услуги. Никто «из знакомых» не влезет вперёд.</p></div>
+        <div class="glass reveal"><div class="ic">02</div><h3>Без сюрпризов в чеке</h3><p>Цена из калькулятора — в записи. Не «+400 за колесо» после монтажа.</p></div>
+        <div class="glass reveal"><div class="ic">03</div><h3>Без звонков</h3><p>Подтвердим в Telegram, WhatsApp или SMS. Мастер под машиной — а вы всё равно записаны.</p></div>
+        <div class="glass reveal"><div class="ic">04</div><h3>Честный статус</h3><p>Онлайн видно, открыто ли сейчас и сколько ждать. Не «написано открыто, а закрыто».</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2 class="h2 reveal">Вопросы</h2>
+      <div class="faq reveal">
+        <details><summary>Можно приехать без записи?</summary><p>Можно — в свободные окна обслужим в порядке живой очереди. Но в сезон переобувки записавшиеся идут по времени, поэтому лучше выбрать слот онлайн.</p></details>
+        <details><summary>Что если я опаздываю?</summary><p>Держим бокс 15 минут. Если опаздываете сильнее — перенесите запись в один клик через «Ваша запись», окно освободится для других.</p></details>
+        <details><summary>Есть хранение шин?</summary><p>Да, сезонное хранение комплекта в чехлах. Отметьте его в калькуляторе — заберём колёса сразу после переобувки.</p></details>
+        <details><summary>Ремонт прокола ночью?</summary><p>Работаем до 21:00. После закрытия напишите в Telegram — если мастер на месте, ответим сразу.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© Шиномонтаж «Колесо 24», Анапа · демо-концепт · сделано <a href="https://t.me/landrix_dev">Landrix</a></span>
+    <span>Фото: <a href="https://commons.wikimedia.org/wiki/File:BMW_X3_xDrive20d_(G01)_at_night_rear.jpg" rel="noopener">Wikimedia Commons</a>, CC BY-SA 4.0</span>
+  </div>
+</footer>
+
+<div class="mbar"><a class="btn btn-ghost" href="tel:+79180000024" aria-label="Позвонить">☎</a><button class="btn btn-blue" data-book>Записаться без очереди</button></div>
+
+<div class="scrim" id="scrim"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="shTitle">
+  <div class="grab"></div>
+  <div class="sh-head"><h3 id="shTitle">Запись</h3><button class="x" id="close" aria-label="Закрыть">✕</button></div>
+  <div class="stepn" id="stepn">Шаг 1 из 4</div>
+  <div class="prog"><i></i><i></i><i></i><i></i></div>
+
+  <div class="step" data-s="1">
+    <p class="lbl">Что делаем</p>
+    <div class="chips" id="sCars"></div>
+    <div class="chips" id="sRadii"></div>
+    <div class="svc" id="sSvc" style="margin-bottom:18px"></div>
+    <div class="nav"><button class="btn btn-blue" id="to2">Дальше · <span id="sTotal"></span></button></div>
+  </div>
+
+  <div class="step" data-s="2">
+    <div class="pick"><b id="pickName"></b><span id="pickSum"></span></div>
+    <p class="lbl">Дата</p>
+    <div class="days" id="days"></div>
+    <p class="lbl">Время · бокс занят <span id="dur"></span></p>
+    <div class="times" id="times"></div>
+    <p class="hint" id="slotHint">Зачёркнутое время уже занято.</p>
+    <div class="nav"><button class="btn btn-ghost" data-back>←</button><button class="btn btn-blue" id="to3" disabled>Выберите время</button></div>
+  </div>
+
+  <div class="step" data-s="3">
+    <label class="field">Имя<input id="fName" autocomplete="given-name" placeholder="Как к вам обращаться"></label>
+    <label class="field">Телефон<input id="fPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__"><span class="err" id="pErr"></span></label>
+    <label class="field">Авто и госномер<input id="fCar" placeholder="Например: Kia Rio, А123ВС 93"></label>
+    <p class="lbl">Подтверждение и напоминание</p>
+    <div class="seg">
+      <label><input type="radio" name="conf" value="Telegram" checked><span>Telegram</span></label>
+      <label><input type="radio" name="conf" value="WhatsApp"><span>WhatsApp</span></label>
+      <label><input type="radio" name="conf" value="SMS"><span>SMS</span></label>
+      <label><input type="radio" name="conf" value="звонок"><span>Звонок</span></label>
+    </div>
+    <div class="nav"><button class="btn btn-ghost" data-back>←</button><button class="btn btn-blue" id="to4">Проверить запись</button></div>
+  </div>
+
+  <div class="step" data-s="4">
+    <div id="recapBox">
+      <div class="recap" id="recap"></div>
+      <div class="fix" style="margin-bottom:18px">Сумма зафиксирована. За 2 часа до визита пришлём напоминание.</div>
+      <div class="nav"><button class="btn btn-ghost" data-back>←</button><button class="btn btn-blue" id="confirm">Подтвердить запись</button></div>
+    </div>
+    <div class="done" id="doneBox" hidden>
+      <div class="ring">✓</div>
+      <h3>Вы записаны</h3>
+      <p id="doneText"></p>
+      <button class="btn btn-ghost" id="doneClose" style="width:100%">Готово</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const hdr = $('header'); addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 8), {passive:true});
+
+  // ---- pricing model (per 4 wheels) ----
+  const cars = [['car','Легковая',1],['cross','Кроссовер',1.2],['suv','Внедорожник',1.4]];
+  const radii = ['R13','R14','R15','R16','R17','R18','R19','R20+'];
+  const rk = r => 1 + Math.max(0, radii.indexOf(r) - 1) * 0.1;
+  const svcs = [
+    ['swap','Сезонная переобувка','снять/поставить, монтаж, балансировка',2000,25],
+    ['bal','Только балансировка','4 колеса',800,15],
+    ['fix','Ремонт прокола','1 колесо, жгут или латка',500,15],
+    ['store','Хранение шин','сезон, в чехлах',3000,0],
+    ['valve','Замена вентилей','4 шт.',400,5]
+  ];
+  const st = {car:'car', r:'R16', svc:new Set(['swap']), day:0, time:null};
+  const price = id => { const s = svcs.find(x=>x[0]===id); if (id==='store'||id==='fix') return s[3]; return Math.round(s[3]*rk(st.r)*cars.find(c=>c[0]===st.car)[2]/50)*50; };
+  const sum = () => [...st.svc].reduce((a,id)=>a+price(id),0);
+  const dur = () => Math.max(15, [...st.svc].reduce((a,id)=>a+svcs.find(x=>x[0]===id)[4],0));
+  const rub = n => n.toLocaleString('ru-RU') + ' ₽';
+
+  function chips(el, list, key, getVal, getLbl){
+    el.innerHTML = list.map(x=>`<button class="chip" aria-pressed="${getVal(x)===st[key]}" data-v="${getVal(x)}">${getLbl(x)}</button>`).join('');
+  }
+  function svcList(el){
+    el.innerHTML = svcs.map(s=>`<label><input type="checkbox" value="${s[0]}" ${st.svc.has(s[0])?'checked':''}><span class="n">${s[1]}<small>${s[2]}</small></span><span class="p" data-p="${s[0]}"></span></label>`).join('');
+  }
+  function paint(){
+    for (const [c,r,s] of [['#cars','#radii','#svc'],['#sCars','#sRadii','#sSvc']]){
+      chips($(c), cars, 'car', x=>x[0], x=>x[1]); chips($(r), radii, 'r', x=>x, x=>x);
+      if (!$(s).children.length) svcList($(s));
+      $(s).querySelectorAll('input').forEach(i=>i.checked=st.svc.has(i.value));
+      $(s).querySelectorAll('[data-p]').forEach(p=>p.textContent=rub(price(p.dataset.p)));
+    }
+    $('#lines').innerHTML = [...st.svc].map(id=>`<div class="sum-row"><span>${svcs.find(x=>x[0]===id)[1]}</span><span>${rub(price(id))}</span></div>`).join('') || '<div class="sum-row"><span>Ничего не выбрано</span><span>—</span></div>';
+    $('#total').textContent = rub(sum()); $('#sTotal').textContent = rub(sum());
+    $('#calcBook').disabled = $('#to2').disabled = !st.svc.size;
+  }
+  document.addEventListener('click', e=>{
+    const ch = e.target.closest('.chip'); if (!ch) return;
+    const box = ch.parentElement.id;
+    if (/cars/i.test(box)) st.car = ch.dataset.v; else st.r = ch.dataset.v;
+    paint();
+  });
+  document.addEventListener('change', e=>{
+    if (e.target.matches('.svc input')){ e.target.checked ? st.svc.add(e.target.value) : st.svc.delete(e.target.value); paint(); }
+  });
+
+  // ---- slots (2 boxes, 30-min grid, demo occupancy seeded by date) ----
+  const wd = ['вс','пн','вт','ср','чт','пт','сб'];
+  const days = [...Array(7)].map((_,i)=>{const d=new Date(); d.setHours(0,0,0,0); d.setDate(d.getDate()+i); return d;});
+  const grid = []; for (let m=8*60; m<=20*60+30; m+=30) grid.push(m);
+  const fmt = m => `${Math.floor(m/60)}:${String(m%60).padStart(2,'0')}`;
+  const rnd = s => { let x = Math.sin(s)*10000; return x - Math.floor(x); };
+  const busy = (di, m) => {
+    const now = new Date(), nowM = now.getHours()*60+now.getMinutes();
+    if (di===0 && m < nowM + 30) return true;
+    if (m + dur() > 21*60) return true;
+    const peak = (m>=9*60 && m<=11*60) || (m>=17*60 && m<=19*60);
+    const need = Math.ceil(dur()/30);
+    for (let k=0;k<need;k++){ const t=m+k*30; const a = rnd(days[di].getDate()*97+t) < (peak?.62:.34), b = rnd(days[di].getDate()*131+t*7) < (peak?.62:.34); if (a&&b) return true; }
+    return false;
+  };
+  const freeToday = () => grid.filter(m=>!busy(0,m)).length;
+  function slots(){
+    $('#days').innerHTML = days.map((d,i)=>`<button class="day" aria-pressed="${i===st.day}" data-d="${i}">${i?wd[d.getDay()]:'сег'}<b>${d.getDate()}</b></button>`).join('');
+    $('#times').innerHTML = grid.map(m=>`<button class="time" ${busy(st.day,m)?'disabled':''} aria-pressed="${st.time===m}" data-m="${m}">${fmt(m)}</button>`).join('');
+    const free = grid.filter(m=>!busy(st.day,m)).length;
+    $('#slotHint').textContent = free ? `Свободно ${free} ${plural(free,'окно','окна','окон')}. Зачёркнутое время уже занято.` : 'На этот день свободных окон нет — выберите другой.';
+    $('#dur').textContent = `~${dur()} мин`;
+    $('#to3').disabled = st.time===null; $('#to3').textContent = st.time===null ? 'Выберите время' : `Дальше · ${fmt(st.time)}`;
+  }
+  $('#days').addEventListener('click', e=>{const b=e.target.closest('.day'); if(b){st.day=+b.dataset.d; st.time=null; slots();}});
+  $('#times').addEventListener('click', e=>{const b=e.target.closest('.time'); if(b&&!b.disabled){st.time=+b.dataset.m; slots();}});
+  const plural=(n,a,b,c)=>{const m=n%10,h=n%100;return m===1&&h!==11?a:m>=2&&m<=4&&(h<10||h>=20)?b:c;};
+  const fc = freeToday(); $('#freeCnt').textContent = fc ? `${fc} ${plural(fc,'окно','окна','окон')}` : 'завтра';
+
+  // ---- sheet flow ----
+  const sheet=$('#sheet'), scrim=$('#scrim'); let step=1, editing=false;
+  function go(n){ step=n; $$('.step').forEach(s=>s.classList.toggle('on', +s.dataset.s===n)); $$('.prog i').forEach((p,i)=>p.classList.toggle('on', i<n)); $('#stepn').textContent=`Шаг ${n} из 4`;
+    $('#shTitle').textContent = ['Услуги','Дата и время','Контакты','Проверка'][n-1];
+    if (n===2){ $('#pickName').textContent = [...st.svc].map(id=>svcs.find(x=>x[0]===id)[1]).join(' + '); $('#pickSum').textContent = rub(sum()); slots(); }
+    sheet.scrollTop=0; }
+  function open(n=1){ paint(); go(n); sheet.classList.add('on'); scrim.classList.add('on'); document.body.style.overflow='hidden'; setTimeout(()=>sheet.querySelector('.step.on button, .step.on input')?.focus({preventScroll:true}),350); }
+  function close(){ sheet.classList.remove('on'); scrim.classList.remove('on'); document.body.style.overflow=''; $('#recapBox').hidden=false; $('#doneBox').hidden=true; }
+  $$('[data-book]').forEach(b=>b.addEventListener('click',()=>open(b.id==='calcBook'?2:1)));
+  $('#close').onclick=close; scrim.onclick=close; addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+  $$('[data-back]').forEach(b=>b.addEventListener('click',()=>go(step-1)));
+  $('#to2').onclick=()=>go(2); $('#to3').onclick=()=>go(3);
+
+  const ph=$('#fPhone');
+  ph.addEventListener('input',()=>{ let d=ph.value.replace(/\D/g,'').replace(/^[78]/,'').slice(0,10); const p=[d.slice(0,3),d.slice(3,6),d.slice(6,8),d.slice(8,10)];
+    ph.value = d ? `+7 (${p[0]}${d.length>3?') '+p[1]:''}${d.length>6?'-'+p[2]:''}${d.length>8?'-'+p[3]:''}` : ''; ph.removeAttribute('aria-invalid'); $('#pErr').textContent=''; });
+  const dLabel = () => days[st.day].toLocaleDateString('ru-RU',{weekday:'long',day:'numeric',month:'long'});
+  $('#to4').onclick=()=>{
+    if (ph.value.replace(/\D/g,'').length<11){ ph.setAttribute('aria-invalid','true'); $('#pErr').textContent='Нужно 10 цифр после +7'; ph.focus(); return; }
+    const conf=document.querySelector('[name=conf]:checked').value;
+    $('#recap').innerHTML = [['Когда',`${dLabel()}, ${fmt(st.time)}`],['Услуги',[...st.svc].map(id=>svcs.find(x=>x[0]===id)[1]).join(', ')],['Авто',`${cars.find(c=>c[0]===st.car)[1]}, ${st.r}${$('#fCar').value?' · '+$('#fCar').value:''}`],['Длительность',`~${dur()} мин`],['Подтверждение',conf],['Сумма',rub(sum())]]
+      .map(([a,b])=>`<div><span>${a}</span><b>${b}</b></div>`).join('');
+    go(4);
+  };
+  $('#confirm').onclick=()=>{
+    const conf=document.querySelector('[name=conf]:checked').value;
+    const rec={when:`${dLabel()}, ${fmt(st.time)}`, sum:sum(), conf};
+    try{localStorage.setItem('k24',JSON.stringify(rec));}catch{}
+    $('#doneText').textContent = `${rec.when}. ${conf==='звонок'?'Администратор перезвонит в течение 15 минут.':'Подтверждение придёт в '+conf+' — звонить не будем.'} К оплате ${rub(rec.sum)}.`;
+    $('#recapBox').hidden=true; $('#doneBox').hidden=false; $('#shTitle').textContent='Готово'; $('#stepn').textContent='Запись создана'; myPaint();
+  };
+  $('#doneClose').onclick=close;
+
+  // ---- my booking: move / cancel ----
+  function myPaint(){ let r=null; try{r=JSON.parse(localStorage.getItem('k24'));}catch{} $('#my').classList.toggle('on',!!r); if(r) $('#myText').textContent=`${r.when} · ${rub(r.sum)}`; }
+  $('#myCancel').onclick=()=>{ if(confirm('Отменить запись? Окно освободится для других.')){ localStorage.removeItem('k24'); myPaint(); } };
+  $('#myMove').onclick=()=>{ st.time=null; open(2); };
+  myPaint(); paint();
+
+  // reveal
+  const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.1});
+  $$('.reveal').forEach(el=>io.observe(el));
+})();
+</script>
+</body>
+</html>
